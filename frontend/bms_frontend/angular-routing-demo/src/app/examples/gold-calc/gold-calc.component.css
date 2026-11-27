@@ -1,0 +1,36 @@
+
+.container {
+  width: 350px;
+  margin: 40px auto;
+  padding: 25px;
+  background: #fff8e7;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px #ccc;
+  font-family: Arial;
+}
+
+h2 {
+  text-align: center;
+  color: #b8860b;
+}
+
+label {
+  display: block;
+  margin-top: 15px;
+  font-weight: bold;
+}
+
+input, select {
+  width: 100%;
+  padding: 10px;
+  margin-top: 5px;
+  box-sizing: border-box;
+}
+
+h3 {
+  color: #b8860b;
+}
+
+p {
+  font-size: 15px;
+}

@@ -1,0 +1,138 @@
+
+<div class="container">
+
+  <h2>Student Registration Form</h2>
+
+  <form #myForm="ngForm" (ngSubmit)="submitForm(myForm)">
+
+    <!-- FULL NAME -->
+    <label>Full Name *</label>
+    <input
+      type="text"
+      name="fullName"
+      ngModel
+      required
+      #fullName="ngModel"
+      placeholder="Enter your full name">
+
+    <div class="error"
+         *ngIf="fullName.invalid && (fullName.touched || fullName.dirty)">
+      <span *ngIf="fullName.errors?.['required']">
+        Full name is required.
+      </span>
+    </div>
+
+
+    <!-- EMAIL -->
+    <label>Email Address *</label>
+    <input
+      type="email"
+      name="email"
+      ngModel
+      required
+      email
+      #email="ngModel"
+      placeholder="Enter your email">
+
+    <div class="error"
+         *ngIf="email.invalid && (email.touched || email.dirty)">
+      <span *ngIf="email.errors?.['required']">
+        Email is required.
+      </span>
+
+      <span *ngIf="email.errors?.['email']">
+        Enter a valid email address.
+      </span>
+    </div>
+
+
+    <!-- PHONE -->
+    <label>Phone Number *</label>
+    <input
+      type="tel"
+      name="phone"
+      ngModel
+      required
+      pattern="[0-9]{10}"
+      #phone="ngModel"
+      placeholder="Enter 10-digit phone number">
+
+    <div class="error"
+         *ngIf="phone.invalid && (phone.touched || phone.dirty)">
+      <span *ngIf="phone.errors?.['required']">
+        Phone number is required.
+      </span>
+
+      <span *ngIf="phone.errors?.['pattern']">
+        Enter exactly 10 digits.
+      </span>
+    </div>
+
+
+    <!-- AGE -->
+    <label>Age *</label>
+    <input
+      type="number"
+      name="age"
+      ngModel
+      required
+      min="18"
+      #age="ngModel"
+      placeholder="Enter your age">
+
+    <div class="error"
+         *ngIf="age.invalid && (age.touched || age.dirty)">
+      <span *ngIf="age.errors?.['required']">
+        Age is required.
+      </span>
+
+      <span *ngIf="age.errors?.['min']">
+        You must be at least 18 years old.
+      </span>
+    </div>
+
+
+    <!-- GENDER -->
+    <label>Gender *</label>
+    <select
+      name="gender"
+      ngModel
+      required
+      #gender="ngModel">
+
+      <option value="" disabled>Select your gender</option>
+      <option value="Male">Male</option>
+      <option value="Female">Female</option>
+      <option value="Other">Other</option>
+
+    </select>
+
+    <div class="error"
+         *ngIf="gender.invalid && (gender.touched || gender.dirty)">
+      Gender is required.
+    </div>
+
+
+    <!-- ADDRESS: OPTIONAL -->
+    <label>Address</label>
+    <textarea
+      name="address"
+      ngModel
+      placeholder="Enter your address">
+    </textarea>
+
+
+    <!-- SUBMIT -->
+    <button type="submit" [disabled]="myForm.invalid">
+      Submit Registration
+    </button>
+
+  </form>
+
+
+  <!-- SUCCESS MESSAGE -->
+  <div class="success" *ngIf="submitted">
+    Registration submitted successfully!
+  </div>
+
+</div>

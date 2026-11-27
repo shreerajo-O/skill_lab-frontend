@@ -1,0 +1,28 @@
+<h3>All Employees</h3>
+<button type="button" (click)="loadEmployees()">
+    Refresh
+</button>
+<p *ngIf="errorMessage">{{ errorMessage }}</p>
+<table>
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Department</th>
+            <th>Age</th>
+            <th>Salary</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let emp of employees">
+            <td>{{ emp.id }}</td>
+            <td>{{ emp.name }}</td>
+            <td>{{ emp.dept }}</td>
+            <td>{{ emp.age }}</td>
+            <td>{{ emp.salary }}</td>
+        </tr>
+        <tr *ngIf="employees.length === 0">
+            <td colspan="5">No employees found.</td>
+        </tr>
+    </tbody>
+</table>

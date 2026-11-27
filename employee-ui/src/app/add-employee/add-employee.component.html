@@ -1,0 +1,16 @@
+<h3>Add Employee</h3>
+<form #employeeForm="ngForm" (ngSubmit)="addEmployee()">
+    <label>Name</label>
+    <input type="text" name="name" [(ngModel)]="newEmployee.name" required minlength="2">
+    <label>Department</label>
+    <input type="text" name="dept" [(ngModel)]="newEmployee.dept" required>
+    <label>Age</label>
+    <input type="number" name="age" [(ngModel)]="newEmployee.age" required min="18">
+    <label>Salary</label>
+    <input type="number" name="salary" [(ngModel)]="newEmployee.salary" required min="0">
+    <button type="submit" [disabled]="employeeForm.invalid || isSaving">
+        {{ isSaving ? 'Saving...' : 'Add Employee' }}
+    </button>
+</form>
+<p *ngIf="message">{{ message }}</p>
+<p *ngIf="errorMessage">{{ errorMessage }}</p>
